@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Análise de Tráfego</title>
+    
+    <!-- Tailwind CSS para estilização rápida e moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js para visualização de dados -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Referência ao nosso arquivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-white">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-6">
+            <h1 id="main-title" class="text-3xl md:text-4xl font-bold text-cyan-400">Análise de Tráfego de Servidor em Tempo Real</h1>
+            <p id="subtitle" class="text-lg text-gray-400 mt-2">Volume de dados por cliente (Janela de 5s)</p>
+        </header>
+
+        <main class="bg-gray-800 rounded-xl shadow-2xl p-4 md:p-6">
+            <!-- Botão para voltar da visão de drill down -->
+            <button id="backButton" class="hidden mb-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                &larr; Voltar para Visão Geral
+            </button>
+            
+            <!-- Container do gráfico -->
+            <div class="chart-container">
+                <canvas id="trafficChart"></canvas>
+            </div>
+
+             <!-- Indicador de status da API -->
+            <div id="status-indicator" class="mt-4 text-center text-sm font-medium">
+                <span class="inline-block w-3 h-3 rounded-full mr-2 bg-yellow-500"></span>
+                <span id="status-text">Conectando à API...</span>
+            </div>
+        </main>
+        
+        <footer class="text-center mt-8 text-gray-500">
+            <p>Desenvolvido para a disciplina de Sistemas Distribuídos.</p>
+        </footer>
+    </div>
+
+    <!-- Referência ao nosso arquivo de lógica JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
